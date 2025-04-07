@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wpf on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/wpf/</link>
+    <description>Recent content in Wpf on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>de</language>
+    <lastBuildDate>Tue, 25 Mar 2025 20:47:17 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/wpf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A. Bünting - Modernisierung eines WPF Plugin-Systems 2</title>
+      <link>http://localhost:1313/cases/buenting-wpfd/</link>
+      <pubDate>Tue, 25 Mar 2025 20:47:17 +0100</pubDate>
+      <guid>http://localhost:1313/cases/buenting-wpfd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>J. Bünting - Modernisierung eines WPF Plugin-Systems</title>
+      <link>http://localhost:1313/cases/buenting-wpf/</link>
+      <pubDate>Mon, 10 Mar 2025 20:47:17 +0100</pubDate>
+      <guid>http://localhost:1313/cases/buenting-wpf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>J. Bünting - Modernisierung eines WPF Plugin-Systems 2</title>
+      <link>http://localhost:1313/cases/buenting-wpfa/</link>
+      <pubDate>Mon, 10 Mar 2025 20:47:17 +0100</pubDate>
+      <guid>http://localhost:1313/cases/buenting-wpfa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>J. Bünting - Modernisierung eines WPF Plugin-Systems 2</title>
+      <link>http://localhost:1313/cases/buenting-wpfb/</link>
+      <pubDate>Mon, 10 Mar 2025 20:47:17 +0100</pubDate>
+      <guid>http://localhost:1313/cases/buenting-wpfb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>J. Bünting - Modernisierung eines WPF Plugin-Systems 2</title>
+      <link>http://localhost:1313/cases/buenting-wpfc/</link>
+      <pubDate>Mon, 10 Mar 2025 20:47:17 +0100</pubDate>
+      <guid>http://localhost:1313/cases/buenting-wpfc/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

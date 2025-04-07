@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-name="Ebene 1" version="1.1" viewBox="0 0 1924.4 110.05" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <style>.cls-1 {
+        fill: url(#Unbenannter_Verlauf_442);
+      }</style>
+  <linearGradient id="Unbenannter_Verlauf_442" x1="2643.3" x2="1477.5" y1="1103.7" y2="2338.7" data-name="Unbenannter Verlauf 442" gradientTransform="rotate(180 1473.4 1085.4)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#2097c8" offset="0"/>
+   <stop stop-color="#1b7da8" offset=".09"/>
+   <stop stop-color="#156085" offset=".21"/>
+   <stop stop-color="#114868" offset=".34"/>
+   <stop stop-color="#0d3651" offset=".47"/>
+   <stop offset=".62"/>
+   <stop stop-color="#092137" offset=".78"/>
+   <stop stop-color="#091f35" offset="1"/>
+  </linearGradient>
+ </defs>
+ <path class="cls-1" d="m1924.4-0.21206c156.72 86.116 442.8-130.28 4.0462 110.79-178.89 98.291-1826.3 37.308-1925.2 0.77437-212.92-78.677-104.12-71.589-3.2441-111.57 0 0 1036.4 247.5 1924.4 0z"/>
+</svg>

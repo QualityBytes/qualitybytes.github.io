@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172.2 182.64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Unbenannter_Verlauf_6);
+      }
+
+      .cls-2 {
+        fill: #dbad83;
+        opacity: .66;
+      }
+
+      .cls-3 {
+        fill: #c17b36;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+    <linearGradient id="Unbenannter_Verlauf_6" data-name="Unbenannter Verlauf 6" x1="85.19" y1="44.26" x2="86.23" y2="119.02" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7931e"/>
+      <stop offset=".3" stop-color="#f79421" stop-opacity=".99"/>
+      <stop offset=".37" stop-color="#f7992c" stop-opacity=".93"/>
+      <stop offset=".49" stop-color="#f8a84c" stop-opacity=".79"/>
+      <stop offset=".65" stop-color="#fac17f" stop-opacity=".57"/>
+      <stop offset=".85" stop-color="#fce3c5" stop-opacity=".26"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-2" d="M77.82,64.2l-51.97,30.39c-2.39,1.4-2.37,4.86.04,6.23l65.46,37.02c1.11.63,2.46.62,3.56-.02l52.19-30.17c2.4-1.39,2.39-4.86-.03-6.23l-65.68-37.24c-1.11-.63-2.48-.62-3.58.02Z"/>
+  <path class="cls-3" d="M77.82,54.42l-51.97,30.39c-2.39,1.4-2.37,4.86.04,6.23l65.46,37.02c1.11.63,2.46.62,3.56-.02l52.19-30.17c2.4-1.39,2.39-4.86-.03-6.23l-65.68-37.24c-1.11-.63-2.48-.62-3.58.02Z"/>
+  <path class="cls-1" d="M77.05,44.84l-51.97,30.39c-2.39,1.4-2.37,4.86.04,6.23l65.46,37.02c1.11.63,2.46.62,3.56-.02l52.19-30.17c2.4-1.39,2.39-4.86-.03-6.23l-65.68-37.24c-1.11-.63-2.48-.62-3.58.02Z"/>
+  <line class="cls-4" x1="76.33" y1="51.06" x2="92.87" y2="61.09"/>
+  <line class="cls-4" x1="71.56" y1="54.82" x2="105.15" y2="74.62"/>
+  <line class="cls-4" x1="67.3" y1="57.83" x2="100.89" y2="77.63"/>
+  <line class="cls-4" x1="62.54" y1="61.09" x2="96.12" y2="80.88"/>
+  <line class="cls-4" x1="57.03" y1="64.09" x2="90.61" y2="83.89"/>
+  <line class="cls-4" x1="51.77" y1="67.6" x2="85.35" y2="87.4"/>
+  <line class="cls-4" x1="46.6" y1="70.95" x2="69.21" y2="84.55"/>
+</svg>

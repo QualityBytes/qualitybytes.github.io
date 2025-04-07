@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cases on My New Hugo Site</title>
+    <link>http://localhost:1313/en/cases/</link>
+    <description>Recent content in Cases on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 10 Mar 2025 20:47:17 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/cases/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Buenting Wpf</title>
+      <link>http://localhost:1313/en/cases/buenting-wpf/</link>
+      <pubDate>Mon, 10 Mar 2025 20:47:17 +0100</pubDate>
+      <guid>http://localhost:1313/en/cases/buenting-wpf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Buenting Wpf</title>
+      <link>http://localhost:1313/en/cases/buenting-wpfa/</link>
+      <pubDate>Mon, 10 Mar 2025 20:47:17 +0100</pubDate>
+      <guid>http://localhost:1313/en/cases/buenting-wpfa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Buenting Wpf</title>
+      <link>http://localhost:1313/en/cases/buenting-wpfb/</link>
+      <pubDate>Mon, 10 Mar 2025 20:47:17 +0100</pubDate>
+      <guid>http://localhost:1313/en/cases/buenting-wpfb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Buenting Wpf</title>
+      <link>http://localhost:1313/en/cases/buenting-wpfc/</link>
+      <pubDate>Mon, 10 Mar 2025 20:47:17 +0100</pubDate>
+      <guid>http://localhost:1313/en/cases/buenting-wpfc/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
