@@ -11,6 +11,7 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-md: 28rem;
     --container-lg: 32rem;
     --container-xl: 36rem;
     --container-2xl: 42rem;
@@ -272,209 +273,11 @@
   .top-\[anchor\(--lang-1_bottom\)\] {
     top: anchor(--lang-1 bottom);
   }
-  .top-\[anchor\(--lang-2_bottom\)\] {
-    top: anchor(--lang-2 bottom);
-  }
-  .top-\[anchor\(--lang-3_bottom\)\] {
-    top: anchor(--lang-3 bottom);
-  }
-  .top-\[anchor\(--lang-4_bottom\)\] {
-    top: anchor(--lang-4 bottom);
-  }
-  .top-\[anchor\(--lang-5_bottom\)\] {
-    top: anchor(--lang-5 bottom);
-  }
-  .top-\[anchor\(--lang-6_bottom\)\] {
-    top: anchor(--lang-6 bottom);
-  }
-  .top-\[anchor\(--lang-7_bottom\)\] {
-    top: anchor(--lang-7 bottom);
-  }
-  .top-\[anchor\(--lang-10_bottom\)\] {
-    top: anchor(--lang-10 bottom);
-  }
-  .top-\[anchor\(--lang-11_bottom\)\] {
-    top: anchor(--lang-11 bottom);
-  }
-  .top-\[anchor\(--lang-12_bottom\)\] {
-    top: anchor(--lang-12 bottom);
-  }
-  .top-\[anchor\(--lang-13_bottom\)\] {
-    top: anchor(--lang-13 bottom);
-  }
-  .top-\[anchor\(--lang-14_bottom\)\] {
-    top: anchor(--lang-14 bottom);
-  }
-  .top-\[anchor\(--lang-15_bottom\)\] {
-    top: anchor(--lang-15 bottom);
-  }
-  .top-\[anchor\(--lang-16_bottom\)\] {
-    top: anchor(--lang-16 bottom);
-  }
-  .top-\[anchor\(--lang-17_bottom\)\] {
-    top: anchor(--lang-17 bottom);
-  }
-  .top-\[anchor\(--lang-20_bottom\)\] {
-    top: anchor(--lang-20 bottom);
-  }
-  .top-\[anchor\(--lang-21_bottom\)\] {
-    top: anchor(--lang-21 bottom);
-  }
-  .top-\[anchor\(--lang-22_bottom\)\] {
-    top: anchor(--lang-22 bottom);
-  }
-  .top-\[anchor\(--lang-23_bottom\)\] {
-    top: anchor(--lang-23 bottom);
-  }
-  .top-\[anchor\(--lang-24_bottom\)\] {
-    top: anchor(--lang-24 bottom);
-  }
-  .top-\[anchor\(--lang-25_bottom\)\] {
-    top: anchor(--lang-25 bottom);
-  }
-  .top-\[anchor\(--lang-26_bottom\)\] {
-    top: anchor(--lang-26 bottom);
-  }
-  .top-\[anchor\(--lang-27_bottom\)\] {
-    top: anchor(--lang-27 bottom);
-  }
-  .top-\[anchor\(--lang-30_bottom\)\] {
-    top: anchor(--lang-30 bottom);
-  }
   .top-\[anchor\(--services-1_bottom\)\] {
     top: anchor(--services-1 bottom);
   }
   .top-\[anchor\(--services-2_bottom\)\] {
     top: anchor(--services-2 bottom);
-  }
-  .top-\[anchor\(--services-3_bottom\)\] {
-    top: anchor(--services-3 bottom);
-  }
-  .top-\[anchor\(--services-4_bottom\)\] {
-    top: anchor(--services-4 bottom);
-  }
-  .top-\[anchor\(--services-5_bottom\)\] {
-    top: anchor(--services-5 bottom);
-  }
-  .top-\[anchor\(--services-6_bottom\)\] {
-    top: anchor(--services-6 bottom);
-  }
-  .top-\[anchor\(--services-7_bottom\)\] {
-    top: anchor(--services-7 bottom);
-  }
-  .top-\[anchor\(--services-10_bottom\)\] {
-    top: anchor(--services-10 bottom);
-  }
-  .top-\[anchor\(--services-11_bottom\)\] {
-    top: anchor(--services-11 bottom);
-  }
-  .top-\[anchor\(--services-12_bottom\)\] {
-    top: anchor(--services-12 bottom);
-  }
-  .top-\[anchor\(--services-13_bottom\)\] {
-    top: anchor(--services-13 bottom);
-  }
-  .top-\[anchor\(--services-14_bottom\)\] {
-    top: anchor(--services-14 bottom);
-  }
-  .top-\[anchor\(--services-15_bottom\)\] {
-    top: anchor(--services-15 bottom);
-  }
-  .top-\[anchor\(--services-16_bottom\)\] {
-    top: anchor(--services-16 bottom);
-  }
-  .top-\[anchor\(--services-17_bottom\)\] {
-    top: anchor(--services-17 bottom);
-  }
-  .top-\[anchor\(--services-20_bottom\)\] {
-    top: anchor(--services-20 bottom);
-  }
-  .top-\[anchor\(--services-21_bottom\)\] {
-    top: anchor(--services-21 bottom);
-  }
-  .top-\[anchor\(--services-22_bottom\)\] {
-    top: anchor(--services-22 bottom);
-  }
-  .top-\[anchor\(--services-23_bottom\)\] {
-    top: anchor(--services-23 bottom);
-  }
-  .top-\[anchor\(--services-24_bottom\)\] {
-    top: anchor(--services-24 bottom);
-  }
-  .top-\[anchor\(--services-25_bottom\)\] {
-    top: anchor(--services-25 bottom);
-  }
-  .top-\[anchor\(--services-26_bottom\)\] {
-    top: anchor(--services-26 bottom);
-  }
-  .top-\[anchor\(--services-27_bottom\)\] {
-    top: anchor(--services-27 bottom);
-  }
-  .top-\[anchor\(--services-30_bottom\)\] {
-    top: anchor(--services-30 bottom);
-  }
-  .top-\[anchor\(--services-31_bottom\)\] {
-    top: anchor(--services-31 bottom);
-  }
-  .top-\[anchor\(--services-32_bottom\)\] {
-    top: anchor(--services-32 bottom);
-  }
-  .top-\[anchor\(--services-33_bottom\)\] {
-    top: anchor(--services-33 bottom);
-  }
-  .top-\[anchor\(--services-34_bottom\)\] {
-    top: anchor(--services-34 bottom);
-  }
-  .top-\[anchor\(--services-35_bottom\)\] {
-    top: anchor(--services-35 bottom);
-  }
-  .top-\[anchor\(--services-36_bottom\)\] {
-    top: anchor(--services-36 bottom);
-  }
-  .top-\[anchor\(--services-37_bottom\)\] {
-    top: anchor(--services-37 bottom);
-  }
-  .top-\[anchor\(--services-40_bottom\)\] {
-    top: anchor(--services-40 bottom);
-  }
-  .top-\[anchor\(--services-41_bottom\)\] {
-    top: anchor(--services-41 bottom);
-  }
-  .top-\[anchor\(--services-42_bottom\)\] {
-    top: anchor(--services-42 bottom);
-  }
-  .top-\[anchor\(--services-43_bottom\)\] {
-    top: anchor(--services-43 bottom);
-  }
-  .top-\[anchor\(--services-44_bottom\)\] {
-    top: anchor(--services-44 bottom);
-  }
-  .top-\[anchor\(--services-45_bottom\)\] {
-    top: anchor(--services-45 bottom);
-  }
-  .top-\[anchor\(--services-46_bottom\)\] {
-    top: anchor(--services-46 bottom);
-  }
-  .top-\[anchor\(--services-47_bottom\)\] {
-    top: anchor(--services-47 bottom);
-  }
-  .top-\[anchor\(--services-50_bottom\)\] {
-    top: anchor(--services-50 bottom);
-  }
-  .top-\[anchor\(--services-51_bottom\)\] {
-    top: anchor(--services-51 bottom);
-  }
-  .top-\[anchor\(--services-52_bottom\)\] {
-    top: anchor(--services-52 bottom);
-  }
-  .top-\[anchor\(--services-53_bottom\)\] {
-    top: anchor(--services-53 bottom);
-  }
-  .top-\[anchor\(--services-54_bottom\)\] {
-    top: anchor(--services-54 bottom);
-  }
-  .top-\[anchor\(--services-55_bottom\)\] {
-    top: anchor(--services-55 bottom);
   }
   .right-0 {
     right: calc(var(--spacing) * 0);
@@ -491,77 +294,11 @@
   .bottom-16 {
     bottom: calc(var(--spacing) * 16);
   }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
   .left-\[anchor\(--lang-1_left\)\] {
     left: anchor(--lang-1 left);
-  }
-  .left-\[anchor\(--lang-2_left\)\] {
-    left: anchor(--lang-2 left);
-  }
-  .left-\[anchor\(--lang-3_left\)\] {
-    left: anchor(--lang-3 left);
-  }
-  .left-\[anchor\(--lang-4_left\)\] {
-    left: anchor(--lang-4 left);
-  }
-  .left-\[anchor\(--lang-5_left\)\] {
-    left: anchor(--lang-5 left);
-  }
-  .left-\[anchor\(--lang-6_left\)\] {
-    left: anchor(--lang-6 left);
-  }
-  .left-\[anchor\(--lang-7_left\)\] {
-    left: anchor(--lang-7 left);
-  }
-  .left-\[anchor\(--lang-10_left\)\] {
-    left: anchor(--lang-10 left);
-  }
-  .left-\[anchor\(--lang-11_left\)\] {
-    left: anchor(--lang-11 left);
-  }
-  .left-\[anchor\(--lang-12_left\)\] {
-    left: anchor(--lang-12 left);
-  }
-  .left-\[anchor\(--lang-13_left\)\] {
-    left: anchor(--lang-13 left);
-  }
-  .left-\[anchor\(--lang-14_left\)\] {
-    left: anchor(--lang-14 left);
-  }
-  .left-\[anchor\(--lang-15_left\)\] {
-    left: anchor(--lang-15 left);
-  }
-  .left-\[anchor\(--lang-16_left\)\] {
-    left: anchor(--lang-16 left);
-  }
-  .left-\[anchor\(--lang-17_left\)\] {
-    left: anchor(--lang-17 left);
-  }
-  .left-\[anchor\(--lang-20_left\)\] {
-    left: anchor(--lang-20 left);
-  }
-  .left-\[anchor\(--lang-21_left\)\] {
-    left: anchor(--lang-21 left);
-  }
-  .left-\[anchor\(--lang-22_left\)\] {
-    left: anchor(--lang-22 left);
-  }
-  .left-\[anchor\(--lang-23_left\)\] {
-    left: anchor(--lang-23 left);
-  }
-  .left-\[anchor\(--lang-24_left\)\] {
-    left: anchor(--lang-24 left);
-  }
-  .left-\[anchor\(--lang-25_left\)\] {
-    left: anchor(--lang-25 left);
-  }
-  .left-\[anchor\(--lang-26_left\)\] {
-    left: anchor(--lang-26 left);
-  }
-  .left-\[anchor\(--lang-27_left\)\] {
-    left: anchor(--lang-27 left);
-  }
-  .left-\[anchor\(--lang-30_left\)\] {
-    left: anchor(--lang-30 left);
   }
   .left-\[anchor\(--services-1_left\)\] {
     left: anchor(--services-1 left);
@@ -569,140 +306,14 @@
   .left-\[anchor\(--services-2_left\)\] {
     left: anchor(--services-2 left);
   }
-  .left-\[anchor\(--services-3_left\)\] {
-    left: anchor(--services-3 left);
-  }
-  .left-\[anchor\(--services-4_left\)\] {
-    left: anchor(--services-4 left);
-  }
-  .left-\[anchor\(--services-5_left\)\] {
-    left: anchor(--services-5 left);
-  }
-  .left-\[anchor\(--services-6_left\)\] {
-    left: anchor(--services-6 left);
-  }
-  .left-\[anchor\(--services-7_left\)\] {
-    left: anchor(--services-7 left);
-  }
-  .left-\[anchor\(--services-10_left\)\] {
-    left: anchor(--services-10 left);
-  }
-  .left-\[anchor\(--services-11_left\)\] {
-    left: anchor(--services-11 left);
-  }
-  .left-\[anchor\(--services-12_left\)\] {
-    left: anchor(--services-12 left);
-  }
-  .left-\[anchor\(--services-13_left\)\] {
-    left: anchor(--services-13 left);
-  }
-  .left-\[anchor\(--services-14_left\)\] {
-    left: anchor(--services-14 left);
-  }
-  .left-\[anchor\(--services-15_left\)\] {
-    left: anchor(--services-15 left);
-  }
-  .left-\[anchor\(--services-16_left\)\] {
-    left: anchor(--services-16 left);
-  }
-  .left-\[anchor\(--services-17_left\)\] {
-    left: anchor(--services-17 left);
-  }
-  .left-\[anchor\(--services-20_left\)\] {
-    left: anchor(--services-20 left);
-  }
-  .left-\[anchor\(--services-21_left\)\] {
-    left: anchor(--services-21 left);
-  }
-  .left-\[anchor\(--services-22_left\)\] {
-    left: anchor(--services-22 left);
-  }
-  .left-\[anchor\(--services-23_left\)\] {
-    left: anchor(--services-23 left);
-  }
-  .left-\[anchor\(--services-24_left\)\] {
-    left: anchor(--services-24 left);
-  }
-  .left-\[anchor\(--services-25_left\)\] {
-    left: anchor(--services-25 left);
-  }
-  .left-\[anchor\(--services-26_left\)\] {
-    left: anchor(--services-26 left);
-  }
-  .left-\[anchor\(--services-27_left\)\] {
-    left: anchor(--services-27 left);
-  }
-  .left-\[anchor\(--services-30_left\)\] {
-    left: anchor(--services-30 left);
-  }
-  .left-\[anchor\(--services-31_left\)\] {
-    left: anchor(--services-31 left);
-  }
-  .left-\[anchor\(--services-32_left\)\] {
-    left: anchor(--services-32 left);
-  }
-  .left-\[anchor\(--services-33_left\)\] {
-    left: anchor(--services-33 left);
-  }
-  .left-\[anchor\(--services-34_left\)\] {
-    left: anchor(--services-34 left);
-  }
-  .left-\[anchor\(--services-35_left\)\] {
-    left: anchor(--services-35 left);
-  }
-  .left-\[anchor\(--services-36_left\)\] {
-    left: anchor(--services-36 left);
-  }
-  .left-\[anchor\(--services-37_left\)\] {
-    left: anchor(--services-37 left);
-  }
-  .left-\[anchor\(--services-40_left\)\] {
-    left: anchor(--services-40 left);
-  }
-  .left-\[anchor\(--services-41_left\)\] {
-    left: anchor(--services-41 left);
-  }
-  .left-\[anchor\(--services-42_left\)\] {
-    left: anchor(--services-42 left);
-  }
-  .left-\[anchor\(--services-43_left\)\] {
-    left: anchor(--services-43 left);
-  }
-  .left-\[anchor\(--services-44_left\)\] {
-    left: anchor(--services-44 left);
-  }
-  .left-\[anchor\(--services-45_left\)\] {
-    left: anchor(--services-45 left);
-  }
-  .left-\[anchor\(--services-46_left\)\] {
-    left: anchor(--services-46 left);
-  }
-  .left-\[anchor\(--services-47_left\)\] {
-    left: anchor(--services-47 left);
-  }
-  .left-\[anchor\(--services-50_left\)\] {
-    left: anchor(--services-50 left);
-  }
-  .left-\[anchor\(--services-51_left\)\] {
-    left: anchor(--services-51 left);
-  }
-  .left-\[anchor\(--services-52_left\)\] {
-    left: anchor(--services-52 left);
-  }
-  .left-\[anchor\(--services-53_left\)\] {
-    left: anchor(--services-53 left);
-  }
-  .left-\[anchor\(--services-54_left\)\] {
-    left: anchor(--services-54 left);
-  }
-  .left-\[anchor\(--services-55_left\)\] {
-    left: anchor(--services-55 left);
-  }
   .isolate {
     isolation: isolate;
   }
   .-z-10 {
     z-index: calc(10 * -1);
+  }
+  .z-10 {
+    z-index: 10;
   }
   .z-50 {
     z-index: 50;
@@ -784,6 +395,9 @@
   }
   .grid {
     display: grid;
+  }
+  .hidden {
+    display: none;
   }
   .inline-flex {
     display: inline-flex;
@@ -882,6 +496,9 @@
   .w-0 {
     width: calc(var(--spacing) * 0);
   }
+  .w-1\/2 {
+    width: calc(1/2 * 100%);
+  }
   .w-2 {
     width: calc(var(--spacing) * 2);
   }
@@ -948,6 +565,9 @@
   .max-w-lg {
     max-width: var(--container-lg);
   }
+  .max-w-md {
+    max-width: var(--container-md);
+  }
   .max-w-prose {
     max-width: 65ch;
   }
@@ -998,6 +618,9 @@
   }
   .cursor-grab {
     cursor: grab;
+  }
+  .cursor-pointer {
+    cursor: pointer;
   }
   .snap-x {
     scroll-snap-type: x var(--tw-scroll-snap-strictness);
@@ -1492,6 +1115,10 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .duration-300 {
+    --tw-duration: 300ms;
+    transition-duration: 300ms;
+  }
   .duration-700 {
     --tw-duration: 700ms;
     transition-duration: 700ms;
@@ -1503,209 +1130,11 @@
   .\[anchor-name\:--lang-1\] {
     anchor-name: --lang-1;
   }
-  .\[anchor-name\:--lang-2\] {
-    anchor-name: --lang-2;
-  }
-  .\[anchor-name\:--lang-3\] {
-    anchor-name: --lang-3;
-  }
-  .\[anchor-name\:--lang-4\] {
-    anchor-name: --lang-4;
-  }
-  .\[anchor-name\:--lang-5\] {
-    anchor-name: --lang-5;
-  }
-  .\[anchor-name\:--lang-6\] {
-    anchor-name: --lang-6;
-  }
-  .\[anchor-name\:--lang-7\] {
-    anchor-name: --lang-7;
-  }
-  .\[anchor-name\:--lang-10\] {
-    anchor-name: --lang-10;
-  }
-  .\[anchor-name\:--lang-11\] {
-    anchor-name: --lang-11;
-  }
-  .\[anchor-name\:--lang-12\] {
-    anchor-name: --lang-12;
-  }
-  .\[anchor-name\:--lang-13\] {
-    anchor-name: --lang-13;
-  }
-  .\[anchor-name\:--lang-14\] {
-    anchor-name: --lang-14;
-  }
-  .\[anchor-name\:--lang-15\] {
-    anchor-name: --lang-15;
-  }
-  .\[anchor-name\:--lang-16\] {
-    anchor-name: --lang-16;
-  }
-  .\[anchor-name\:--lang-17\] {
-    anchor-name: --lang-17;
-  }
-  .\[anchor-name\:--lang-20\] {
-    anchor-name: --lang-20;
-  }
-  .\[anchor-name\:--lang-21\] {
-    anchor-name: --lang-21;
-  }
-  .\[anchor-name\:--lang-22\] {
-    anchor-name: --lang-22;
-  }
-  .\[anchor-name\:--lang-23\] {
-    anchor-name: --lang-23;
-  }
-  .\[anchor-name\:--lang-24\] {
-    anchor-name: --lang-24;
-  }
-  .\[anchor-name\:--lang-25\] {
-    anchor-name: --lang-25;
-  }
-  .\[anchor-name\:--lang-26\] {
-    anchor-name: --lang-26;
-  }
-  .\[anchor-name\:--lang-27\] {
-    anchor-name: --lang-27;
-  }
-  .\[anchor-name\:--lang-30\] {
-    anchor-name: --lang-30;
-  }
   .\[anchor-name\:--services-1\] {
     anchor-name: --services-1;
   }
   .\[anchor-name\:--services-2\] {
     anchor-name: --services-2;
-  }
-  .\[anchor-name\:--services-3\] {
-    anchor-name: --services-3;
-  }
-  .\[anchor-name\:--services-4\] {
-    anchor-name: --services-4;
-  }
-  .\[anchor-name\:--services-5\] {
-    anchor-name: --services-5;
-  }
-  .\[anchor-name\:--services-6\] {
-    anchor-name: --services-6;
-  }
-  .\[anchor-name\:--services-7\] {
-    anchor-name: --services-7;
-  }
-  .\[anchor-name\:--services-10\] {
-    anchor-name: --services-10;
-  }
-  .\[anchor-name\:--services-11\] {
-    anchor-name: --services-11;
-  }
-  .\[anchor-name\:--services-12\] {
-    anchor-name: --services-12;
-  }
-  .\[anchor-name\:--services-13\] {
-    anchor-name: --services-13;
-  }
-  .\[anchor-name\:--services-14\] {
-    anchor-name: --services-14;
-  }
-  .\[anchor-name\:--services-15\] {
-    anchor-name: --services-15;
-  }
-  .\[anchor-name\:--services-16\] {
-    anchor-name: --services-16;
-  }
-  .\[anchor-name\:--services-17\] {
-    anchor-name: --services-17;
-  }
-  .\[anchor-name\:--services-20\] {
-    anchor-name: --services-20;
-  }
-  .\[anchor-name\:--services-21\] {
-    anchor-name: --services-21;
-  }
-  .\[anchor-name\:--services-22\] {
-    anchor-name: --services-22;
-  }
-  .\[anchor-name\:--services-23\] {
-    anchor-name: --services-23;
-  }
-  .\[anchor-name\:--services-24\] {
-    anchor-name: --services-24;
-  }
-  .\[anchor-name\:--services-25\] {
-    anchor-name: --services-25;
-  }
-  .\[anchor-name\:--services-26\] {
-    anchor-name: --services-26;
-  }
-  .\[anchor-name\:--services-27\] {
-    anchor-name: --services-27;
-  }
-  .\[anchor-name\:--services-30\] {
-    anchor-name: --services-30;
-  }
-  .\[anchor-name\:--services-31\] {
-    anchor-name: --services-31;
-  }
-  .\[anchor-name\:--services-32\] {
-    anchor-name: --services-32;
-  }
-  .\[anchor-name\:--services-33\] {
-    anchor-name: --services-33;
-  }
-  .\[anchor-name\:--services-34\] {
-    anchor-name: --services-34;
-  }
-  .\[anchor-name\:--services-35\] {
-    anchor-name: --services-35;
-  }
-  .\[anchor-name\:--services-36\] {
-    anchor-name: --services-36;
-  }
-  .\[anchor-name\:--services-37\] {
-    anchor-name: --services-37;
-  }
-  .\[anchor-name\:--services-40\] {
-    anchor-name: --services-40;
-  }
-  .\[anchor-name\:--services-41\] {
-    anchor-name: --services-41;
-  }
-  .\[anchor-name\:--services-42\] {
-    anchor-name: --services-42;
-  }
-  .\[anchor-name\:--services-43\] {
-    anchor-name: --services-43;
-  }
-  .\[anchor-name\:--services-44\] {
-    anchor-name: --services-44;
-  }
-  .\[anchor-name\:--services-45\] {
-    anchor-name: --services-45;
-  }
-  .\[anchor-name\:--services-46\] {
-    anchor-name: --services-46;
-  }
-  .\[anchor-name\:--services-47\] {
-    anchor-name: --services-47;
-  }
-  .\[anchor-name\:--services-50\] {
-    anchor-name: --services-50;
-  }
-  .\[anchor-name\:--services-51\] {
-    anchor-name: --services-51;
-  }
-  .\[anchor-name\:--services-52\] {
-    anchor-name: --services-52;
-  }
-  .\[anchor-name\:--services-53\] {
-    anchor-name: --services-53;
-  }
-  .\[anchor-name\:--services-54\] {
-    anchor-name: --services-54;
-  }
-  .\[anchor-name\:--services-55\] {
-    anchor-name: --services-55;
   }
   .\[animation-composition\:acumulate\,add\] {
     animation-composition: acumulate,add;
