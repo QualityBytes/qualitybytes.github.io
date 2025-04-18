@@ -1,4 +1,409 @@
 (() => {
+  // node_modules/preline/dist/carousel.mjs
+  var t = { 189: (t2, e2, s2) => {
+    s2.d(e2, { LO: () => i2 });
+    const i2 = { xs: 0, sm: 640, md: 768, lg: 1024, xl: 1280, "2xl": 1536 };
+  }, 615: (t2, e2, s2) => {
+    s2.d(e2, { A: () => i2 });
+    class i2 {
+      constructor(t3, e3, s3) {
+        this.el = t3, this.options = e3, this.events = s3, this.el = t3, this.options = e3, this.events = {};
+      }
+      createCollection(t3, e3) {
+        var s3;
+        t3.push({ id: (null === (s3 = null == e3 ? void 0 : e3.el) || void 0 === s3 ? void 0 : s3.id) || t3.length + 1, element: e3 });
+      }
+      fireEvent(t3, e3 = null) {
+        if (this.events.hasOwnProperty(t3)) return this.events[t3](e3);
+      }
+      on(t3, e3) {
+        this.events[t3] = e3;
+      }
+    }
+  }, 926: (t2, e2, s2) => {
+    s2.d(e2, { en: () => r2, fc: () => n2, sg: () => i2 });
+    const i2 = (t3, e3 = 200) => {
+      let s3;
+      return (...i3) => {
+        clearTimeout(s3), s3 = setTimeout(() => {
+          t3.apply(void 0, i3);
+        }, e3);
+      };
+    }, n2 = (t3) => {
+      const e3 = document.createElement("template");
+      return t3 = t3.trim(), e3.innerHTML = t3, e3.content.firstChild;
+    }, r2 = (t3, e3, s3 = " ", i3 = "add") => {
+      t3.split(s3).forEach((t4) => "add" === i3 ? e3.classList.add(t4) : e3.classList.remove(t4));
+    };
+  } };
+  var e = {};
+  function s(i2) {
+    var n2 = e[i2];
+    if (void 0 !== n2) return n2.exports;
+    var r2 = e[i2] = { exports: {} };
+    return t[i2](r2, r2.exports, s), r2.exports;
+  }
+  s.d = (t2, e2) => {
+    for (var i2 in e2) s.o(e2, i2) && !s.o(t2, i2) && Object.defineProperty(t2, i2, { enumerable: true, get: e2[i2] });
+  }, s.o = (t2, e2) => Object.prototype.hasOwnProperty.call(t2, e2);
+  var i = {};
+  s.d(i, { A: () => h });
+  var n = s(926);
+  var r = s(615);
+  var o = s(189);
+  var l = class _l2 extends r.A {
+    constructor(t2, e2) {
+      var s2, i2, n2, r2, o2;
+      super(t2, e2);
+      const l2 = t2.getAttribute("data-hs-carousel"), h2 = l2 ? JSON.parse(l2) : {}, a2 = Object.assign(Object.assign({}, h2), e2);
+      this.currentIndex = a2.currentIndex || 0, this.loadingClasses = a2.loadingClasses ? `${a2.loadingClasses}`.split(",") : null, this.dotsItemClasses = a2.dotsItemClasses ? a2.dotsItemClasses : null, this.isAutoHeight = void 0 !== a2.isAutoHeight && a2.isAutoHeight, this.isAutoPlay = void 0 !== a2.isAutoPlay && a2.isAutoPlay, this.isCentered = void 0 !== a2.isCentered && a2.isCentered, this.isDraggable = void 0 !== a2.isDraggable && a2.isDraggable, this.isInfiniteLoop = void 0 !== a2.isInfiniteLoop && a2.isInfiniteLoop, this.isRTL = void 0 !== a2.isRTL && a2.isRTL, this.isSnap = void 0 !== a2.isSnap && a2.isSnap, this.hasSnapSpacers = void 0 === a2.hasSnapSpacers || a2.hasSnapSpacers, this.speed = a2.speed || 4e3, this.updateDelay = a2.updateDelay || 0, this.slidesQty = a2.slidesQty || 1, this.loadingClassesRemove = (null === (s2 = this.loadingClasses) || void 0 === s2 ? void 0 : s2[0]) ? this.loadingClasses[0].split(" ") : "opacity-0", this.loadingClassesAdd = (null === (i2 = this.loadingClasses) || void 0 === i2 ? void 0 : i2[1]) ? this.loadingClasses[1].split(" ") : "", this.afterLoadingClassesAdd = (null === (n2 = this.loadingClasses) || void 0 === n2 ? void 0 : n2[2]) ? this.loadingClasses[2].split(" ") : "", this.container = this.el.querySelector(".hs-carousel") || null, this.inner = this.el.querySelector(".hs-carousel-body") || null, this.slides = this.el.querySelectorAll(".hs-carousel-slide") || [], this.prev = this.el.querySelector(".hs-carousel-prev") || null, this.next = this.el.querySelector(".hs-carousel-next") || null, this.dots = this.el.querySelector(".hs-carousel-pagination") || null, this.info = this.el.querySelector(".hs-carousel-info") || null, this.infoTotal = (null === (r2 = null == this ? void 0 : this.info) || void 0 === r2 ? void 0 : r2.querySelector(".hs-carousel-info-total")) || null, this.infoCurrent = (null === (o2 = null == this ? void 0 : this.info) || void 0 === o2 ? void 0 : o2.querySelector(".hs-carousel-info-current")) || null, this.sliderWidth = this.el.getBoundingClientRect().width, this.isDragging = false, this.dragStartX = null, this.initialTranslateX = null, this.touchX = { start: 0, end: 0 }, this.resizeContainer = document.querySelector("body"), this.resizeContainerWidth = 0, this.init();
+    }
+    setIsSnap() {
+      const t2 = this.container.getBoundingClientRect(), e2 = t2.left + t2.width / 2;
+      let s2 = null, i2 = null, n2 = 1 / 0;
+      Array.from(this.inner.children).forEach((t3) => {
+        const i3 = t3.getBoundingClientRect(), r2 = this.inner.getBoundingClientRect(), o2 = i3.left + i3.width / 2 - r2.left, l2 = Math.abs(e2 - (r2.left + o2));
+        l2 < n2 && (n2 = l2, s2 = t3);
+      }), s2 && (i2 = Array.from(this.slides).findIndex((t3) => t3 === s2)), this.setIndex(i2), this.dots && this.setCurrentDot();
+    }
+    prevClick() {
+      this.goToPrev(), this.isAutoPlay && (this.resetTimer(), this.setTimer());
+    }
+    nextClick() {
+      this.goToNext(), this.isAutoPlay && (this.resetTimer(), this.setTimer());
+    }
+    containerScroll() {
+      clearTimeout(this.isScrolling), this.isScrolling = setTimeout(() => {
+        this.setIsSnap();
+      }, 100);
+    }
+    elementTouchStart(t2) {
+      this.touchX.start = t2.changedTouches[0].screenX;
+    }
+    elementTouchEnd(t2) {
+      this.touchX.end = t2.changedTouches[0].screenX, this.detectDirection();
+    }
+    innerMouseDown(t2) {
+      this.handleDragStart(t2);
+    }
+    innerTouchStart(t2) {
+      this.handleDragStart(t2);
+    }
+    documentMouseMove(t2) {
+      this.handleDragMove(t2);
+    }
+    documentTouchMove(t2) {
+      this.handleDragMove(t2);
+    }
+    documentMouseUp() {
+      this.handleDragEnd();
+    }
+    documentTouchEnd() {
+      this.handleDragEnd();
+    }
+    dotClick(t2) {
+      this.goTo(t2), this.isAutoPlay && (this.resetTimer(), this.setTimer());
+    }
+    init() {
+      this.createCollection(window.$hsCarouselCollection, this), this.inner && (this.calculateWidth(), this.isDraggable && !this.isSnap && this.initDragHandling()), this.prev && (this.onPrevClickListener = () => this.prevClick(), this.prev.addEventListener("click", this.onPrevClickListener)), this.next && (this.onNextClickListener = () => this.nextClick(), this.next.addEventListener("click", this.onNextClickListener)), this.dots && this.initDots(), this.info && this.buildInfo(), this.slides.length && (this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass(), this.isAutoPlay && this.autoPlay()), setTimeout(() => {
+        this.isSnap && this.setIsSnap(), this.loadingClassesRemove && ("string" == typeof this.loadingClassesRemove ? this.inner.classList.remove(this.loadingClassesRemove) : this.inner.classList.remove(...this.loadingClassesRemove)), this.loadingClassesAdd && ("string" == typeof this.loadingClassesAdd ? this.inner.classList.add(this.loadingClassesAdd) : this.inner.classList.add(...this.loadingClassesAdd)), this.inner && this.afterLoadingClassesAdd && setTimeout(() => {
+          "string" == typeof this.afterLoadingClassesAdd ? this.inner.classList.add(this.afterLoadingClassesAdd) : this.inner.classList.add(...this.afterLoadingClassesAdd);
+        });
+      }, 400), this.isSnap && (this.onContainerScrollListener = () => this.containerScroll(), this.container.addEventListener("scroll", this.onContainerScrollListener)), this.el.classList.add("init"), this.isSnap || (this.onElementTouchStartListener = (t2) => this.elementTouchStart(t2), this.onElementTouchEndListener = (t2) => this.elementTouchEnd(t2), this.el.addEventListener("touchstart", this.onElementTouchStartListener), this.el.addEventListener("touchend", this.onElementTouchEndListener)), this.observeResize();
+    }
+    initDragHandling() {
+      const t2 = this.inner;
+      this.onInnerMouseDownListener = (t3) => this.innerMouseDown(t3), this.onInnerTouchStartListener = (t3) => this.innerTouchStart(t3), this.onDocumentMouseMoveListener = (t3) => this.documentMouseMove(t3), this.onDocumentTouchMoveListener = (t3) => this.documentTouchMove(t3), this.onDocumentMouseUpListener = () => this.documentMouseUp(), this.onDocumentTouchEndListener = () => this.documentTouchEnd(), t2 && (t2.addEventListener("mousedown", this.onInnerMouseDownListener), t2.addEventListener("touchstart", this.onInnerTouchStartListener, { passive: true }), document.addEventListener("mousemove", this.onDocumentMouseMoveListener), document.addEventListener("touchmove", this.onDocumentTouchMoveListener, { passive: false }), document.addEventListener("mouseup", this.onDocumentMouseUpListener), document.addEventListener("touchend", this.onDocumentTouchEndListener));
+    }
+    getTranslateXValue() {
+      var t2;
+      const e2 = window.getComputedStyle(this.inner).transform;
+      if ("none" !== e2) {
+        const s2 = null === (t2 = e2.match(/matrix.*\((.+)\)/)) || void 0 === t2 ? void 0 : t2[1].split(", ");
+        if (s2) {
+          let t3 = parseFloat(6 === s2.length ? s2[4] : s2[12]);
+          return this.isRTL && (t3 = -t3), isNaN(t3) || 0 === t3 ? 0 : -t3;
+        }
+      }
+      return 0;
+    }
+    removeClickEventWhileDragging(t2) {
+      t2.preventDefault();
+    }
+    handleDragStart(t2) {
+      t2.preventDefault(), this.isDragging = true, this.dragStartX = this.getEventX(t2), this.initialTranslateX = this.isRTL ? this.getTranslateXValue() : -this.getTranslateXValue(), this.inner.classList.add("dragging");
+    }
+    handleDragMove(t2) {
+      if (!this.isDragging) return;
+      this.inner.querySelectorAll("a:not(.prevented-click)").forEach((t3) => {
+        t3.classList.add("prevented-click"), t3.addEventListener("click", this.removeClickEventWhileDragging);
+      });
+      let e2 = this.getEventX(t2) - this.dragStartX;
+      this.isRTL && (e2 = -e2);
+      const s2 = this.initialTranslateX + e2;
+      this.setTranslate((() => {
+        let t3 = this.sliderWidth * this.slides.length / this.getCurrentSlidesQty() - this.sliderWidth;
+        const e3 = this.sliderWidth, i2 = (e3 - e3 / this.getCurrentSlidesQty()) / 2, n2 = this.isCentered ? i2 : 0;
+        this.isCentered && (t3 += i2);
+        const r2 = -t3;
+        return this.isRTL ? s2 < n2 ? n2 : s2 > t3 ? r2 : -s2 : s2 > n2 ? n2 : s2 < -t3 ? r2 : s2;
+      })());
+    }
+    handleDragEnd() {
+      if (!this.isDragging) return;
+      this.isDragging = false;
+      const t2 = this.sliderWidth / this.getCurrentSlidesQty(), e2 = this.getTranslateXValue();
+      let s2 = Math.round(e2 / t2);
+      this.isRTL && (s2 = Math.round(e2 / t2)), this.inner.classList.remove("dragging"), setTimeout(() => {
+        this.calculateTransform(s2), this.dots && this.setCurrentDot(), this.dragStartX = null, this.initialTranslateX = null, this.inner.querySelectorAll("a.prevented-click").forEach((t3) => {
+          t3.classList.remove("prevented-click"), t3.removeEventListener("click", this.removeClickEventWhileDragging);
+        });
+      });
+    }
+    getEventX(t2) {
+      return t2 instanceof MouseEvent ? t2.clientX : t2.touches[0].clientX;
+    }
+    getCurrentSlidesQty() {
+      if ("object" == typeof this.slidesQty) {
+        const t2 = document.body.clientWidth;
+        let e2 = 0;
+        return Object.keys(this.slidesQty).forEach((s2) => {
+          t2 >= (typeof s2 + 1 == "number" ? this.slidesQty[s2] : o.LO[s2]) && (e2 = this.slidesQty[s2]);
+        }), e2;
+      }
+      return this.slidesQty;
+    }
+    buildSnapSpacers() {
+      const t2 = this.inner.querySelector(".hs-snap-before"), e2 = this.inner.querySelector(".hs-snap-after");
+      t2 && t2.remove(), e2 && e2.remove();
+      const s2 = this.sliderWidth, i2 = s2 / 2 - s2 / this.getCurrentSlidesQty() / 2, r2 = (0, n.fc)(`<div class="hs-snap-before" style="height: 100%; width: ${i2}px"></div>`), o2 = (0, n.fc)(`<div class="hs-snap-after" style="height: 100%; width: ${i2}px"></div>`);
+      this.inner.prepend(r2), this.inner.appendChild(o2);
+    }
+    initDots() {
+      this.el.querySelectorAll(".hs-carousel-pagination-item").length ? this.setDots() : this.buildDots(), this.dots && this.setCurrentDot();
+    }
+    buildDots() {
+      this.dots.innerHTML = "";
+      const t2 = !this.isCentered && this.slidesQty ? this.slides.length - (this.getCurrentSlidesQty() - 1) : this.slides.length;
+      for (let e2 = 0; e2 < t2; e2++) {
+        const t3 = this.buildSingleDot(e2);
+        this.dots.append(t3);
+      }
+    }
+    setDots() {
+      this.dotsItems = this.dots.querySelectorAll(".hs-carousel-pagination-item"), this.dotsItems.forEach((t2, e2) => {
+        const s2 = t2.getAttribute("data-carousel-pagination-item-target");
+        this.singleDotEvents(t2, s2 ? +s2 : e2);
+      });
+    }
+    goToCurrentDot() {
+      const t2 = this.dots, e2 = t2.getBoundingClientRect(), s2 = t2.scrollLeft, i2 = t2.scrollTop, n2 = t2.clientWidth, r2 = t2.clientHeight, o2 = this.dotsItems[this.currentIndex], l2 = o2.getBoundingClientRect(), h2 = l2.left - e2.left + s2, a2 = h2 + o2.clientWidth, d = l2.top - e2.top + i2, c = d + o2.clientHeight;
+      let u = s2, g = i2;
+      (h2 < s2 || a2 > s2 + n2) && (u = a2 - n2), (d < i2 || c > i2 + r2) && (g = c - r2), t2.scrollTo({ left: u, top: g, behavior: "smooth" });
+    }
+    buildInfo() {
+      this.infoTotal && this.setInfoTotal(), this.infoCurrent && this.setInfoCurrent();
+    }
+    setInfoTotal() {
+      this.infoTotal.innerText = `${this.slides.length}`;
+    }
+    setInfoCurrent() {
+      this.infoCurrent.innerText = `${this.currentIndex + 1}`;
+    }
+    buildSingleDot(t2) {
+      const e2 = (0, n.fc)("<span></span>");
+      return this.dotsItemClasses && (0, n.en)(this.dotsItemClasses, e2), this.singleDotEvents(e2, t2), e2;
+    }
+    singleDotEvents(t2, e2) {
+      this.onDotClickListener = () => this.dotClick(e2), t2.addEventListener("click", this.onDotClickListener);
+    }
+    observeResize() {
+      new ResizeObserver((0, n.sg)((t2) => {
+        for (let e2 of t2) {
+          const t3 = e2.contentRect.width;
+          t3 !== this.resizeContainerWidth && (this.recalculateWidth(), this.dots && this.initDots(), this.addCurrentClass(), this.resizeContainerWidth = t3);
+        }
+      }, this.updateDelay)).observe(this.resizeContainer);
+    }
+    calculateWidth() {
+      this.isSnap || (this.inner.style.width = this.sliderWidth * this.slides.length / this.getCurrentSlidesQty() + "px"), this.slides.forEach((t2) => {
+        t2.style.width = this.sliderWidth / this.getCurrentSlidesQty() + "px";
+      }), this.calculateTransform();
+    }
+    addCurrentClass() {
+      if (this.isSnap) {
+        const t2 = Math.floor(this.getCurrentSlidesQty() / 2);
+        for (let e2 = 0; e2 < this.slides.length; e2++) {
+          const s2 = this.slides[e2];
+          e2 <= this.currentIndex + t2 && e2 >= this.currentIndex - t2 ? s2.classList.add("active") : s2.classList.remove("active");
+        }
+      } else {
+        const t2 = this.isCentered ? this.currentIndex + this.getCurrentSlidesQty() + (this.getCurrentSlidesQty() - 1) : this.currentIndex + this.getCurrentSlidesQty();
+        this.slides.forEach((e2, s2) => {
+          s2 >= this.currentIndex && s2 < t2 ? e2.classList.add("active") : e2.classList.remove("active");
+        });
+      }
+    }
+    setCurrentDot() {
+      const t2 = (t3, e2) => {
+        let s2 = false;
+        const i2 = Math.floor(this.getCurrentSlidesQty() / 2);
+        s2 = this.isSnap && !this.hasSnapSpacers ? e2 === (this.getCurrentSlidesQty() % 2 == 0 ? this.currentIndex - i2 + 1 : this.currentIndex - i2) : e2 === this.currentIndex, s2 ? t3.classList.add("active") : t3.classList.remove("active");
+      };
+      this.dotsItems ? this.dotsItems.forEach((e2, s2) => t2(e2, s2)) : this.dots.querySelectorAll(":scope > *").forEach((e2, s2) => t2(e2, s2));
+    }
+    setElementToDisabled(t2) {
+      t2.classList.add("disabled"), "BUTTON" !== t2.tagName && "INPUT" !== t2.tagName || t2.setAttribute("disabled", "disabled");
+    }
+    unsetElementToDisabled(t2) {
+      t2.classList.remove("disabled"), "BUTTON" !== t2.tagName && "INPUT" !== t2.tagName || t2.removeAttribute("disabled");
+    }
+    addDisabledClass() {
+      if (!this.prev || !this.next) return false;
+      const t2 = getComputedStyle(this.inner).getPropertyValue("gap"), e2 = Math.floor(this.getCurrentSlidesQty() / 2);
+      let s2 = 0, i2 = 0, n2 = false, r2 = false;
+      this.isSnap ? (s2 = this.currentIndex, i2 = this.hasSnapSpacers ? this.slides.length - 1 : this.slides.length - e2 - 1, n2 = this.hasSnapSpacers ? 0 === s2 : this.getCurrentSlidesQty() % 2 == 0 ? s2 - e2 < 0 : s2 - e2 == 0, r2 = s2 >= i2 && this.container.scrollLeft + this.container.clientWidth + (parseFloat(t2) || 0) >= this.container.scrollWidth) : (s2 = this.currentIndex, i2 = this.isCentered ? this.slides.length - this.getCurrentSlidesQty() + (this.getCurrentSlidesQty() - 1) : this.slides.length - this.getCurrentSlidesQty(), n2 = 0 === s2, r2 = s2 >= i2), n2 ? (this.unsetElementToDisabled(this.next), this.setElementToDisabled(this.prev)) : r2 ? (this.unsetElementToDisabled(this.prev), this.setElementToDisabled(this.next)) : (this.unsetElementToDisabled(this.prev), this.unsetElementToDisabled(this.next));
+    }
+    autoPlay() {
+      this.setTimer();
+    }
+    setTimer() {
+      this.timer = setInterval(() => {
+        this.currentIndex === this.slides.length - 1 ? this.goTo(0) : this.goToNext();
+      }, this.speed);
+    }
+    resetTimer() {
+      clearInterval(this.timer);
+    }
+    detectDirection() {
+      const { start: t2, end: e2 } = this.touchX;
+      e2 < t2 && this.goToNext(), e2 > t2 && this.goToPrev();
+    }
+    calculateTransform(t2) {
+      void 0 !== t2 && (this.currentIndex = t2), this.currentIndex > this.slides.length - this.getCurrentSlidesQty() && !this.isCentered && (this.currentIndex = this.slides.length - this.getCurrentSlidesQty());
+      const e2 = this.sliderWidth, s2 = e2 / this.getCurrentSlidesQty();
+      let i2 = this.currentIndex * s2;
+      if (this.isSnap && !this.isCentered && this.container.scrollLeft < e2 && this.container.scrollLeft + s2 / 2 > e2 && (this.container.scrollLeft = this.container.scrollWidth), this.isCentered && !this.isSnap) {
+        const t3 = (e2 - s2) / 2;
+        if (0 === this.currentIndex) i2 = -t3;
+        else if (this.currentIndex >= this.slides.length - this.getCurrentSlidesQty() + (this.getCurrentSlidesQty() - 1)) {
+          i2 = this.slides.length * s2 - e2 + t3;
+        } else i2 = this.currentIndex * s2 - t3;
+      }
+      this.isSnap || (this.inner.style.transform = this.isRTL ? `translate(${i2}px, 0px)` : `translate(${-i2}px, 0px)`), this.isAutoHeight && (this.inner.style.height = `${this.slides[this.currentIndex].clientHeight}px`), this.dotsItems && this.goToCurrentDot(), this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass(), this.isSnap && this.hasSnapSpacers && this.buildSnapSpacers(), this.infoCurrent && this.setInfoCurrent();
+    }
+    setTranslate(t2) {
+      this.inner.style.transform = this.isRTL ? `translate(${-t2}px, 0px)` : `translate(${t2}px, 0px)`;
+    }
+    setIndex(t2) {
+      this.currentIndex = t2, this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass();
+    }
+    recalculateWidth() {
+      this.sliderWidth = this.inner.parentElement.getBoundingClientRect().width, this.calculateWidth(), this.sliderWidth !== this.inner.parentElement.getBoundingClientRect().width && this.recalculateWidth();
+    }
+    goToPrev() {
+      if (this.currentIndex > 0 ? this.currentIndex-- : this.currentIndex = this.slides.length - this.getCurrentSlidesQty(), this.isSnap) {
+        const t2 = this.sliderWidth / this.getCurrentSlidesQty();
+        this.container.scrollBy({ left: Math.max(-this.container.scrollLeft, -t2), behavior: "smooth" }), this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass();
+      } else this.calculateTransform();
+      this.dots && this.setCurrentDot();
+    }
+    goToNext() {
+      const t2 = this.isCentered ? this.slides.length - this.getCurrentSlidesQty() + (this.getCurrentSlidesQty() - 1) : this.slides.length - this.getCurrentSlidesQty();
+      if (this.currentIndex < t2 ? this.currentIndex++ : this.currentIndex = 0, this.isSnap) {
+        const t3 = this.sliderWidth / this.getCurrentSlidesQty(), e2 = this.container.scrollWidth - this.container.clientWidth;
+        this.container.scrollBy({ left: Math.min(t3, e2 - this.container.scrollLeft), behavior: "smooth" }), this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass();
+      } else this.calculateTransform();
+      this.dots && this.setCurrentDot();
+    }
+    goTo(t2) {
+      const e2 = this.currentIndex;
+      if (this.currentIndex = t2, this.isSnap) {
+        const t3 = this.sliderWidth / this.getCurrentSlidesQty(), s2 = e2 > this.currentIndex ? e2 - this.currentIndex : this.currentIndex - e2, i2 = e2 > this.currentIndex ? -t3 * s2 : t3 * s2;
+        this.container.scrollBy({ left: i2, behavior: "smooth" }), this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass();
+      } else this.calculateTransform();
+      this.dots && this.setCurrentDot();
+    }
+    destroy() {
+      var t2, e2;
+      if (this.loadingClassesAdd && ("string" == typeof this.loadingClassesAdd ? this.inner.classList.remove(this.loadingClassesAdd) : this.inner.classList.remove(...this.loadingClassesAdd)), this.inner && this.afterLoadingClassesAdd && setTimeout(() => {
+        "string" == typeof this.afterLoadingClassesAdd ? this.inner.classList.remove(this.afterLoadingClassesAdd) : this.inner.classList.remove(...this.afterLoadingClassesAdd);
+      }), this.el.classList.remove("init"), this.inner.classList.remove("dragging"), this.slides.forEach((t3) => t3.classList.remove("active")), (null === (t2 = null == this ? void 0 : this.dotsItems) || void 0 === t2 ? void 0 : t2.length) && this.dotsItems.forEach((t3) => t3.classList.remove("active")), this.prev.classList.remove("disabled"), this.next.classList.remove("disabled"), this.inner.style.width = "", this.slides.forEach((t3) => t3.style.width = ""), this.isSnap || (this.inner.style.transform = ""), this.isAutoHeight && (this.inner.style.height = ""), this.prev.removeEventListener("click", this.onPrevClickListener), this.next.removeEventListener("click", this.onNextClickListener), this.container.removeEventListener("scroll", this.onContainerScrollListener), this.el.removeEventListener("touchstart", this.onElementTouchStartListener), this.el.removeEventListener("touchend", this.onElementTouchEndListener), this.inner.removeEventListener("mousedown", this.onInnerMouseDownListener), this.inner.removeEventListener("touchstart", this.onInnerTouchStartListener), document.removeEventListener("mousemove", this.onDocumentMouseMoveListener), document.removeEventListener("touchmove", this.onDocumentTouchMoveListener), document.removeEventListener("mouseup", this.onDocumentMouseUpListener), document.removeEventListener("touchend", this.onDocumentTouchEndListener), this.inner.querySelectorAll("a:not(.prevented-click)").forEach((t3) => {
+        t3.classList.remove("prevented-click"), t3.removeEventListener("click", this.removeClickEventWhileDragging);
+      }), (null === (e2 = null == this ? void 0 : this.dotsItems) || void 0 === e2 ? void 0 : e2.length) || this.dots.querySelectorAll(":scope > *").length) {
+        ((null == this ? void 0 : this.dotsItems) || this.dots.querySelectorAll(":scope > *")).forEach((t3) => t3.removeEventListener("click", this.onDotClickListener)), this.dots.innerHTML = null;
+      }
+      this.inner.querySelector(".hs-snap-before").remove(), this.inner.querySelector(".hs-snap-after").remove(), this.dotsItems = null, this.isDragging = false, this.dragStartX = null, this.initialTranslateX = null, window.$hsCarouselCollection = window.$hsCarouselCollection.filter(({ element: t3 }) => t3.el !== this.el);
+    }
+    static getInstance(t2, e2) {
+      const s2 = window.$hsCarouselCollection.find((e3) => e3.element.el === ("string" == typeof t2 ? document.querySelector(t2) : t2));
+      return s2 ? e2 ? s2 : s2.element : null;
+    }
+    static autoInit() {
+      window.$hsCarouselCollection || (window.$hsCarouselCollection = []), window.$hsCarouselCollection && (window.$hsCarouselCollection = window.$hsCarouselCollection.filter(({ element: t2 }) => document.contains(t2.el))), document.querySelectorAll("[data-hs-carousel]:not(.--prevent-on-load-init)").forEach((t2) => {
+        window.$hsCarouselCollection.find((e2) => {
+          var s2;
+          return (null === (s2 = null == e2 ? void 0 : e2.element) || void 0 === s2 ? void 0 : s2.el) === t2;
+        }) || new _l2(t2);
+      });
+    }
+  };
+  window.addEventListener("load", () => {
+    l.autoInit();
+  }), "undefined" != typeof window && (window.HSCarousel = l);
+  var h = l;
+  var a = i.A;
+
+  // ns-hugo-imp:C:\Users\andre\source\repos\qb\homepage\Homepage2\assets\js\tabControl.mjs
+  function createTabControls() {
+    document.querySelectorAll("[role='tablist']").forEach(createTabControl);
+  }
+  function createTabControl(tabControl) {
+    if (tabControl.getAttribute("role") !== "tablist") {
+      throw Error(`Cannot create non compliant tab control: ${tabControl}`);
+    }
+    const tabs = [...tabControl.querySelectorAll("[role='tab']")];
+    const selectTab = (sTab) => {
+      tabs.forEach((tab) => modifyTabActive(tab, tab === sTab));
+      selectedTabIndex = tabs.indexOf(sTab);
+      return sTab;
+    };
+    let selectedTabIndex = tabs.findIndex((t2) => Boolean(t2.getAttribute("aria-selected")));
+    selectTab(tabs[selectedTabIndex]);
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", (event) => {
+        event.preventDefault();
+        selectTab(event.currentTarget);
+      });
+      tab.addEventListener("keydown", (event) => {
+        switch (event.key) {
+          case "ArrowLeft":
+            event.preventDefault();
+            selectTab(tabs[Math.max(0, selectedTabIndex - 1)]).focus();
+            break;
+          case "ArrowRight":
+            event.preventDefault();
+            selectTab(tabs[Math.min(tabs.length - 1, selectedTabIndex + 1)]).focus();
+            break;
+          case "Home":
+            event.preventDefault();
+            selectTab(tabs[0]).focus();
+            break;
+          case "End":
+            event.preventDefault();
+            selectTab(tabs[tabs.length - 1]).focus();
+            break;
+        }
+      });
+    });
+  }
+  function modifyTabActive(tab, isActive) {
+    tab.setAttribute("aria-selected", isActive);
+    tab.setAttribute("tabindex", -!isActive);
+    const tabPanelId = tab.getAttribute("aria-controls");
+    document.getElementById(tabPanelId).style.display = isActive ? "block" : "none";
+  }
+
   // node_modules/@oddbird/css-anchor-positioning/dist/css-anchor-positioning-fn.js
   var ha = Object.defineProperty;
   var fa = Object.defineProperties;
@@ -9646,363 +10051,7 @@
     });
   }
 
-  // node_modules/preline/dist/carousel.mjs
-  var t = { 189: (t2, e2, s2) => {
-    s2.d(e2, { LO: () => i2 });
-    const i2 = { xs: 0, sm: 640, md: 768, lg: 1024, xl: 1280, "2xl": 1536 };
-  }, 615: (t2, e2, s2) => {
-    s2.d(e2, { A: () => i2 });
-    class i2 {
-      constructor(t3, e3, s3) {
-        this.el = t3, this.options = e3, this.events = s3, this.el = t3, this.options = e3, this.events = {};
-      }
-      createCollection(t3, e3) {
-        var s3;
-        t3.push({ id: (null === (s3 = null == e3 ? void 0 : e3.el) || void 0 === s3 ? void 0 : s3.id) || t3.length + 1, element: e3 });
-      }
-      fireEvent(t3, e3 = null) {
-        if (this.events.hasOwnProperty(t3)) return this.events[t3](e3);
-      }
-      on(t3, e3) {
-        this.events[t3] = e3;
-      }
-    }
-  }, 926: (t2, e2, s2) => {
-    s2.d(e2, { en: () => r2, fc: () => n2, sg: () => i2 });
-    const i2 = (t3, e3 = 200) => {
-      let s3;
-      return (...i3) => {
-        clearTimeout(s3), s3 = setTimeout(() => {
-          t3.apply(void 0, i3);
-        }, e3);
-      };
-    }, n2 = (t3) => {
-      const e3 = document.createElement("template");
-      return t3 = t3.trim(), e3.innerHTML = t3, e3.content.firstChild;
-    }, r2 = (t3, e3, s3 = " ", i3 = "add") => {
-      t3.split(s3).forEach((t4) => "add" === i3 ? e3.classList.add(t4) : e3.classList.remove(t4));
-    };
-  } };
-  var e = {};
-  function s(i2) {
-    var n2 = e[i2];
-    if (void 0 !== n2) return n2.exports;
-    var r2 = e[i2] = { exports: {} };
-    return t[i2](r2, r2.exports, s), r2.exports;
-  }
-  s.d = (t2, e2) => {
-    for (var i2 in e2) s.o(e2, i2) && !s.o(t2, i2) && Object.defineProperty(t2, i2, { enumerable: true, get: e2[i2] });
-  }, s.o = (t2, e2) => Object.prototype.hasOwnProperty.call(t2, e2);
-  var i = {};
-  s.d(i, { A: () => h });
-  var n = s(926);
-  var r = s(615);
-  var o = s(189);
-  var l = class _l2 extends r.A {
-    constructor(t2, e2) {
-      var s2, i2, n2, r2, o2;
-      super(t2, e2);
-      const l2 = t2.getAttribute("data-hs-carousel"), h2 = l2 ? JSON.parse(l2) : {}, a2 = Object.assign(Object.assign({}, h2), e2);
-      this.currentIndex = a2.currentIndex || 0, this.loadingClasses = a2.loadingClasses ? `${a2.loadingClasses}`.split(",") : null, this.dotsItemClasses = a2.dotsItemClasses ? a2.dotsItemClasses : null, this.isAutoHeight = void 0 !== a2.isAutoHeight && a2.isAutoHeight, this.isAutoPlay = void 0 !== a2.isAutoPlay && a2.isAutoPlay, this.isCentered = void 0 !== a2.isCentered && a2.isCentered, this.isDraggable = void 0 !== a2.isDraggable && a2.isDraggable, this.isInfiniteLoop = void 0 !== a2.isInfiniteLoop && a2.isInfiniteLoop, this.isRTL = void 0 !== a2.isRTL && a2.isRTL, this.isSnap = void 0 !== a2.isSnap && a2.isSnap, this.hasSnapSpacers = void 0 === a2.hasSnapSpacers || a2.hasSnapSpacers, this.speed = a2.speed || 4e3, this.updateDelay = a2.updateDelay || 0, this.slidesQty = a2.slidesQty || 1, this.loadingClassesRemove = (null === (s2 = this.loadingClasses) || void 0 === s2 ? void 0 : s2[0]) ? this.loadingClasses[0].split(" ") : "opacity-0", this.loadingClassesAdd = (null === (i2 = this.loadingClasses) || void 0 === i2 ? void 0 : i2[1]) ? this.loadingClasses[1].split(" ") : "", this.afterLoadingClassesAdd = (null === (n2 = this.loadingClasses) || void 0 === n2 ? void 0 : n2[2]) ? this.loadingClasses[2].split(" ") : "", this.container = this.el.querySelector(".hs-carousel") || null, this.inner = this.el.querySelector(".hs-carousel-body") || null, this.slides = this.el.querySelectorAll(".hs-carousel-slide") || [], this.prev = this.el.querySelector(".hs-carousel-prev") || null, this.next = this.el.querySelector(".hs-carousel-next") || null, this.dots = this.el.querySelector(".hs-carousel-pagination") || null, this.info = this.el.querySelector(".hs-carousel-info") || null, this.infoTotal = (null === (r2 = null == this ? void 0 : this.info) || void 0 === r2 ? void 0 : r2.querySelector(".hs-carousel-info-total")) || null, this.infoCurrent = (null === (o2 = null == this ? void 0 : this.info) || void 0 === o2 ? void 0 : o2.querySelector(".hs-carousel-info-current")) || null, this.sliderWidth = this.el.getBoundingClientRect().width, this.isDragging = false, this.dragStartX = null, this.initialTranslateX = null, this.touchX = { start: 0, end: 0 }, this.resizeContainer = document.querySelector("body"), this.resizeContainerWidth = 0, this.init();
-    }
-    setIsSnap() {
-      const t2 = this.container.getBoundingClientRect(), e2 = t2.left + t2.width / 2;
-      let s2 = null, i2 = null, n2 = 1 / 0;
-      Array.from(this.inner.children).forEach((t3) => {
-        const i3 = t3.getBoundingClientRect(), r2 = this.inner.getBoundingClientRect(), o2 = i3.left + i3.width / 2 - r2.left, l2 = Math.abs(e2 - (r2.left + o2));
-        l2 < n2 && (n2 = l2, s2 = t3);
-      }), s2 && (i2 = Array.from(this.slides).findIndex((t3) => t3 === s2)), this.setIndex(i2), this.dots && this.setCurrentDot();
-    }
-    prevClick() {
-      this.goToPrev(), this.isAutoPlay && (this.resetTimer(), this.setTimer());
-    }
-    nextClick() {
-      this.goToNext(), this.isAutoPlay && (this.resetTimer(), this.setTimer());
-    }
-    containerScroll() {
-      clearTimeout(this.isScrolling), this.isScrolling = setTimeout(() => {
-        this.setIsSnap();
-      }, 100);
-    }
-    elementTouchStart(t2) {
-      this.touchX.start = t2.changedTouches[0].screenX;
-    }
-    elementTouchEnd(t2) {
-      this.touchX.end = t2.changedTouches[0].screenX, this.detectDirection();
-    }
-    innerMouseDown(t2) {
-      this.handleDragStart(t2);
-    }
-    innerTouchStart(t2) {
-      this.handleDragStart(t2);
-    }
-    documentMouseMove(t2) {
-      this.handleDragMove(t2);
-    }
-    documentTouchMove(t2) {
-      this.handleDragMove(t2);
-    }
-    documentMouseUp() {
-      this.handleDragEnd();
-    }
-    documentTouchEnd() {
-      this.handleDragEnd();
-    }
-    dotClick(t2) {
-      this.goTo(t2), this.isAutoPlay && (this.resetTimer(), this.setTimer());
-    }
-    init() {
-      this.createCollection(window.$hsCarouselCollection, this), this.inner && (this.calculateWidth(), this.isDraggable && !this.isSnap && this.initDragHandling()), this.prev && (this.onPrevClickListener = () => this.prevClick(), this.prev.addEventListener("click", this.onPrevClickListener)), this.next && (this.onNextClickListener = () => this.nextClick(), this.next.addEventListener("click", this.onNextClickListener)), this.dots && this.initDots(), this.info && this.buildInfo(), this.slides.length && (this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass(), this.isAutoPlay && this.autoPlay()), setTimeout(() => {
-        this.isSnap && this.setIsSnap(), this.loadingClassesRemove && ("string" == typeof this.loadingClassesRemove ? this.inner.classList.remove(this.loadingClassesRemove) : this.inner.classList.remove(...this.loadingClassesRemove)), this.loadingClassesAdd && ("string" == typeof this.loadingClassesAdd ? this.inner.classList.add(this.loadingClassesAdd) : this.inner.classList.add(...this.loadingClassesAdd)), this.inner && this.afterLoadingClassesAdd && setTimeout(() => {
-          "string" == typeof this.afterLoadingClassesAdd ? this.inner.classList.add(this.afterLoadingClassesAdd) : this.inner.classList.add(...this.afterLoadingClassesAdd);
-        });
-      }, 400), this.isSnap && (this.onContainerScrollListener = () => this.containerScroll(), this.container.addEventListener("scroll", this.onContainerScrollListener)), this.el.classList.add("init"), this.isSnap || (this.onElementTouchStartListener = (t2) => this.elementTouchStart(t2), this.onElementTouchEndListener = (t2) => this.elementTouchEnd(t2), this.el.addEventListener("touchstart", this.onElementTouchStartListener), this.el.addEventListener("touchend", this.onElementTouchEndListener)), this.observeResize();
-    }
-    initDragHandling() {
-      const t2 = this.inner;
-      this.onInnerMouseDownListener = (t3) => this.innerMouseDown(t3), this.onInnerTouchStartListener = (t3) => this.innerTouchStart(t3), this.onDocumentMouseMoveListener = (t3) => this.documentMouseMove(t3), this.onDocumentTouchMoveListener = (t3) => this.documentTouchMove(t3), this.onDocumentMouseUpListener = () => this.documentMouseUp(), this.onDocumentTouchEndListener = () => this.documentTouchEnd(), t2 && (t2.addEventListener("mousedown", this.onInnerMouseDownListener), t2.addEventListener("touchstart", this.onInnerTouchStartListener, { passive: true }), document.addEventListener("mousemove", this.onDocumentMouseMoveListener), document.addEventListener("touchmove", this.onDocumentTouchMoveListener, { passive: false }), document.addEventListener("mouseup", this.onDocumentMouseUpListener), document.addEventListener("touchend", this.onDocumentTouchEndListener));
-    }
-    getTranslateXValue() {
-      var t2;
-      const e2 = window.getComputedStyle(this.inner).transform;
-      if ("none" !== e2) {
-        const s2 = null === (t2 = e2.match(/matrix.*\((.+)\)/)) || void 0 === t2 ? void 0 : t2[1].split(", ");
-        if (s2) {
-          let t3 = parseFloat(6 === s2.length ? s2[4] : s2[12]);
-          return this.isRTL && (t3 = -t3), isNaN(t3) || 0 === t3 ? 0 : -t3;
-        }
-      }
-      return 0;
-    }
-    removeClickEventWhileDragging(t2) {
-      t2.preventDefault();
-    }
-    handleDragStart(t2) {
-      t2.preventDefault(), this.isDragging = true, this.dragStartX = this.getEventX(t2), this.initialTranslateX = this.isRTL ? this.getTranslateXValue() : -this.getTranslateXValue(), this.inner.classList.add("dragging");
-    }
-    handleDragMove(t2) {
-      if (!this.isDragging) return;
-      this.inner.querySelectorAll("a:not(.prevented-click)").forEach((t3) => {
-        t3.classList.add("prevented-click"), t3.addEventListener("click", this.removeClickEventWhileDragging);
-      });
-      let e2 = this.getEventX(t2) - this.dragStartX;
-      this.isRTL && (e2 = -e2);
-      const s2 = this.initialTranslateX + e2;
-      this.setTranslate((() => {
-        let t3 = this.sliderWidth * this.slides.length / this.getCurrentSlidesQty() - this.sliderWidth;
-        const e3 = this.sliderWidth, i2 = (e3 - e3 / this.getCurrentSlidesQty()) / 2, n2 = this.isCentered ? i2 : 0;
-        this.isCentered && (t3 += i2);
-        const r2 = -t3;
-        return this.isRTL ? s2 < n2 ? n2 : s2 > t3 ? r2 : -s2 : s2 > n2 ? n2 : s2 < -t3 ? r2 : s2;
-      })());
-    }
-    handleDragEnd() {
-      if (!this.isDragging) return;
-      this.isDragging = false;
-      const t2 = this.sliderWidth / this.getCurrentSlidesQty(), e2 = this.getTranslateXValue();
-      let s2 = Math.round(e2 / t2);
-      this.isRTL && (s2 = Math.round(e2 / t2)), this.inner.classList.remove("dragging"), setTimeout(() => {
-        this.calculateTransform(s2), this.dots && this.setCurrentDot(), this.dragStartX = null, this.initialTranslateX = null, this.inner.querySelectorAll("a.prevented-click").forEach((t3) => {
-          t3.classList.remove("prevented-click"), t3.removeEventListener("click", this.removeClickEventWhileDragging);
-        });
-      });
-    }
-    getEventX(t2) {
-      return t2 instanceof MouseEvent ? t2.clientX : t2.touches[0].clientX;
-    }
-    getCurrentSlidesQty() {
-      if ("object" == typeof this.slidesQty) {
-        const t2 = document.body.clientWidth;
-        let e2 = 0;
-        return Object.keys(this.slidesQty).forEach((s2) => {
-          t2 >= (typeof s2 + 1 == "number" ? this.slidesQty[s2] : o.LO[s2]) && (e2 = this.slidesQty[s2]);
-        }), e2;
-      }
-      return this.slidesQty;
-    }
-    buildSnapSpacers() {
-      const t2 = this.inner.querySelector(".hs-snap-before"), e2 = this.inner.querySelector(".hs-snap-after");
-      t2 && t2.remove(), e2 && e2.remove();
-      const s2 = this.sliderWidth, i2 = s2 / 2 - s2 / this.getCurrentSlidesQty() / 2, r2 = (0, n.fc)(`<div class="hs-snap-before" style="height: 100%; width: ${i2}px"></div>`), o2 = (0, n.fc)(`<div class="hs-snap-after" style="height: 100%; width: ${i2}px"></div>`);
-      this.inner.prepend(r2), this.inner.appendChild(o2);
-    }
-    initDots() {
-      this.el.querySelectorAll(".hs-carousel-pagination-item").length ? this.setDots() : this.buildDots(), this.dots && this.setCurrentDot();
-    }
-    buildDots() {
-      this.dots.innerHTML = "";
-      const t2 = !this.isCentered && this.slidesQty ? this.slides.length - (this.getCurrentSlidesQty() - 1) : this.slides.length;
-      for (let e2 = 0; e2 < t2; e2++) {
-        const t3 = this.buildSingleDot(e2);
-        this.dots.append(t3);
-      }
-    }
-    setDots() {
-      this.dotsItems = this.dots.querySelectorAll(".hs-carousel-pagination-item"), this.dotsItems.forEach((t2, e2) => {
-        const s2 = t2.getAttribute("data-carousel-pagination-item-target");
-        this.singleDotEvents(t2, s2 ? +s2 : e2);
-      });
-    }
-    goToCurrentDot() {
-      const t2 = this.dots, e2 = t2.getBoundingClientRect(), s2 = t2.scrollLeft, i2 = t2.scrollTop, n2 = t2.clientWidth, r2 = t2.clientHeight, o2 = this.dotsItems[this.currentIndex], l2 = o2.getBoundingClientRect(), h2 = l2.left - e2.left + s2, a2 = h2 + o2.clientWidth, d = l2.top - e2.top + i2, c = d + o2.clientHeight;
-      let u = s2, g = i2;
-      (h2 < s2 || a2 > s2 + n2) && (u = a2 - n2), (d < i2 || c > i2 + r2) && (g = c - r2), t2.scrollTo({ left: u, top: g, behavior: "smooth" });
-    }
-    buildInfo() {
-      this.infoTotal && this.setInfoTotal(), this.infoCurrent && this.setInfoCurrent();
-    }
-    setInfoTotal() {
-      this.infoTotal.innerText = `${this.slides.length}`;
-    }
-    setInfoCurrent() {
-      this.infoCurrent.innerText = `${this.currentIndex + 1}`;
-    }
-    buildSingleDot(t2) {
-      const e2 = (0, n.fc)("<span></span>");
-      return this.dotsItemClasses && (0, n.en)(this.dotsItemClasses, e2), this.singleDotEvents(e2, t2), e2;
-    }
-    singleDotEvents(t2, e2) {
-      this.onDotClickListener = () => this.dotClick(e2), t2.addEventListener("click", this.onDotClickListener);
-    }
-    observeResize() {
-      new ResizeObserver((0, n.sg)((t2) => {
-        for (let e2 of t2) {
-          const t3 = e2.contentRect.width;
-          t3 !== this.resizeContainerWidth && (this.recalculateWidth(), this.dots && this.initDots(), this.addCurrentClass(), this.resizeContainerWidth = t3);
-        }
-      }, this.updateDelay)).observe(this.resizeContainer);
-    }
-    calculateWidth() {
-      this.isSnap || (this.inner.style.width = this.sliderWidth * this.slides.length / this.getCurrentSlidesQty() + "px"), this.slides.forEach((t2) => {
-        t2.style.width = this.sliderWidth / this.getCurrentSlidesQty() + "px";
-      }), this.calculateTransform();
-    }
-    addCurrentClass() {
-      if (this.isSnap) {
-        const t2 = Math.floor(this.getCurrentSlidesQty() / 2);
-        for (let e2 = 0; e2 < this.slides.length; e2++) {
-          const s2 = this.slides[e2];
-          e2 <= this.currentIndex + t2 && e2 >= this.currentIndex - t2 ? s2.classList.add("active") : s2.classList.remove("active");
-        }
-      } else {
-        const t2 = this.isCentered ? this.currentIndex + this.getCurrentSlidesQty() + (this.getCurrentSlidesQty() - 1) : this.currentIndex + this.getCurrentSlidesQty();
-        this.slides.forEach((e2, s2) => {
-          s2 >= this.currentIndex && s2 < t2 ? e2.classList.add("active") : e2.classList.remove("active");
-        });
-      }
-    }
-    setCurrentDot() {
-      const t2 = (t3, e2) => {
-        let s2 = false;
-        const i2 = Math.floor(this.getCurrentSlidesQty() / 2);
-        s2 = this.isSnap && !this.hasSnapSpacers ? e2 === (this.getCurrentSlidesQty() % 2 == 0 ? this.currentIndex - i2 + 1 : this.currentIndex - i2) : e2 === this.currentIndex, s2 ? t3.classList.add("active") : t3.classList.remove("active");
-      };
-      this.dotsItems ? this.dotsItems.forEach((e2, s2) => t2(e2, s2)) : this.dots.querySelectorAll(":scope > *").forEach((e2, s2) => t2(e2, s2));
-    }
-    setElementToDisabled(t2) {
-      t2.classList.add("disabled"), "BUTTON" !== t2.tagName && "INPUT" !== t2.tagName || t2.setAttribute("disabled", "disabled");
-    }
-    unsetElementToDisabled(t2) {
-      t2.classList.remove("disabled"), "BUTTON" !== t2.tagName && "INPUT" !== t2.tagName || t2.removeAttribute("disabled");
-    }
-    addDisabledClass() {
-      if (!this.prev || !this.next) return false;
-      const t2 = getComputedStyle(this.inner).getPropertyValue("gap"), e2 = Math.floor(this.getCurrentSlidesQty() / 2);
-      let s2 = 0, i2 = 0, n2 = false, r2 = false;
-      this.isSnap ? (s2 = this.currentIndex, i2 = this.hasSnapSpacers ? this.slides.length - 1 : this.slides.length - e2 - 1, n2 = this.hasSnapSpacers ? 0 === s2 : this.getCurrentSlidesQty() % 2 == 0 ? s2 - e2 < 0 : s2 - e2 == 0, r2 = s2 >= i2 && this.container.scrollLeft + this.container.clientWidth + (parseFloat(t2) || 0) >= this.container.scrollWidth) : (s2 = this.currentIndex, i2 = this.isCentered ? this.slides.length - this.getCurrentSlidesQty() + (this.getCurrentSlidesQty() - 1) : this.slides.length - this.getCurrentSlidesQty(), n2 = 0 === s2, r2 = s2 >= i2), n2 ? (this.unsetElementToDisabled(this.next), this.setElementToDisabled(this.prev)) : r2 ? (this.unsetElementToDisabled(this.prev), this.setElementToDisabled(this.next)) : (this.unsetElementToDisabled(this.prev), this.unsetElementToDisabled(this.next));
-    }
-    autoPlay() {
-      this.setTimer();
-    }
-    setTimer() {
-      this.timer = setInterval(() => {
-        this.currentIndex === this.slides.length - 1 ? this.goTo(0) : this.goToNext();
-      }, this.speed);
-    }
-    resetTimer() {
-      clearInterval(this.timer);
-    }
-    detectDirection() {
-      const { start: t2, end: e2 } = this.touchX;
-      e2 < t2 && this.goToNext(), e2 > t2 && this.goToPrev();
-    }
-    calculateTransform(t2) {
-      void 0 !== t2 && (this.currentIndex = t2), this.currentIndex > this.slides.length - this.getCurrentSlidesQty() && !this.isCentered && (this.currentIndex = this.slides.length - this.getCurrentSlidesQty());
-      const e2 = this.sliderWidth, s2 = e2 / this.getCurrentSlidesQty();
-      let i2 = this.currentIndex * s2;
-      if (this.isSnap && !this.isCentered && this.container.scrollLeft < e2 && this.container.scrollLeft + s2 / 2 > e2 && (this.container.scrollLeft = this.container.scrollWidth), this.isCentered && !this.isSnap) {
-        const t3 = (e2 - s2) / 2;
-        if (0 === this.currentIndex) i2 = -t3;
-        else if (this.currentIndex >= this.slides.length - this.getCurrentSlidesQty() + (this.getCurrentSlidesQty() - 1)) {
-          i2 = this.slides.length * s2 - e2 + t3;
-        } else i2 = this.currentIndex * s2 - t3;
-      }
-      this.isSnap || (this.inner.style.transform = this.isRTL ? `translate(${i2}px, 0px)` : `translate(${-i2}px, 0px)`), this.isAutoHeight && (this.inner.style.height = `${this.slides[this.currentIndex].clientHeight}px`), this.dotsItems && this.goToCurrentDot(), this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass(), this.isSnap && this.hasSnapSpacers && this.buildSnapSpacers(), this.infoCurrent && this.setInfoCurrent();
-    }
-    setTranslate(t2) {
-      this.inner.style.transform = this.isRTL ? `translate(${-t2}px, 0px)` : `translate(${t2}px, 0px)`;
-    }
-    setIndex(t2) {
-      this.currentIndex = t2, this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass();
-    }
-    recalculateWidth() {
-      this.sliderWidth = this.inner.parentElement.getBoundingClientRect().width, this.calculateWidth(), this.sliderWidth !== this.inner.parentElement.getBoundingClientRect().width && this.recalculateWidth();
-    }
-    goToPrev() {
-      if (this.currentIndex > 0 ? this.currentIndex-- : this.currentIndex = this.slides.length - this.getCurrentSlidesQty(), this.isSnap) {
-        const t2 = this.sliderWidth / this.getCurrentSlidesQty();
-        this.container.scrollBy({ left: Math.max(-this.container.scrollLeft, -t2), behavior: "smooth" }), this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass();
-      } else this.calculateTransform();
-      this.dots && this.setCurrentDot();
-    }
-    goToNext() {
-      const t2 = this.isCentered ? this.slides.length - this.getCurrentSlidesQty() + (this.getCurrentSlidesQty() - 1) : this.slides.length - this.getCurrentSlidesQty();
-      if (this.currentIndex < t2 ? this.currentIndex++ : this.currentIndex = 0, this.isSnap) {
-        const t3 = this.sliderWidth / this.getCurrentSlidesQty(), e2 = this.container.scrollWidth - this.container.clientWidth;
-        this.container.scrollBy({ left: Math.min(t3, e2 - this.container.scrollLeft), behavior: "smooth" }), this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass();
-      } else this.calculateTransform();
-      this.dots && this.setCurrentDot();
-    }
-    goTo(t2) {
-      const e2 = this.currentIndex;
-      if (this.currentIndex = t2, this.isSnap) {
-        const t3 = this.sliderWidth / this.getCurrentSlidesQty(), s2 = e2 > this.currentIndex ? e2 - this.currentIndex : this.currentIndex - e2, i2 = e2 > this.currentIndex ? -t3 * s2 : t3 * s2;
-        this.container.scrollBy({ left: i2, behavior: "smooth" }), this.addCurrentClass(), this.isInfiniteLoop || this.addDisabledClass();
-      } else this.calculateTransform();
-      this.dots && this.setCurrentDot();
-    }
-    destroy() {
-      var t2, e2;
-      if (this.loadingClassesAdd && ("string" == typeof this.loadingClassesAdd ? this.inner.classList.remove(this.loadingClassesAdd) : this.inner.classList.remove(...this.loadingClassesAdd)), this.inner && this.afterLoadingClassesAdd && setTimeout(() => {
-        "string" == typeof this.afterLoadingClassesAdd ? this.inner.classList.remove(this.afterLoadingClassesAdd) : this.inner.classList.remove(...this.afterLoadingClassesAdd);
-      }), this.el.classList.remove("init"), this.inner.classList.remove("dragging"), this.slides.forEach((t3) => t3.classList.remove("active")), (null === (t2 = null == this ? void 0 : this.dotsItems) || void 0 === t2 ? void 0 : t2.length) && this.dotsItems.forEach((t3) => t3.classList.remove("active")), this.prev.classList.remove("disabled"), this.next.classList.remove("disabled"), this.inner.style.width = "", this.slides.forEach((t3) => t3.style.width = ""), this.isSnap || (this.inner.style.transform = ""), this.isAutoHeight && (this.inner.style.height = ""), this.prev.removeEventListener("click", this.onPrevClickListener), this.next.removeEventListener("click", this.onNextClickListener), this.container.removeEventListener("scroll", this.onContainerScrollListener), this.el.removeEventListener("touchstart", this.onElementTouchStartListener), this.el.removeEventListener("touchend", this.onElementTouchEndListener), this.inner.removeEventListener("mousedown", this.onInnerMouseDownListener), this.inner.removeEventListener("touchstart", this.onInnerTouchStartListener), document.removeEventListener("mousemove", this.onDocumentMouseMoveListener), document.removeEventListener("touchmove", this.onDocumentTouchMoveListener), document.removeEventListener("mouseup", this.onDocumentMouseUpListener), document.removeEventListener("touchend", this.onDocumentTouchEndListener), this.inner.querySelectorAll("a:not(.prevented-click)").forEach((t3) => {
-        t3.classList.remove("prevented-click"), t3.removeEventListener("click", this.removeClickEventWhileDragging);
-      }), (null === (e2 = null == this ? void 0 : this.dotsItems) || void 0 === e2 ? void 0 : e2.length) || this.dots.querySelectorAll(":scope > *").length) {
-        ((null == this ? void 0 : this.dotsItems) || this.dots.querySelectorAll(":scope > *")).forEach((t3) => t3.removeEventListener("click", this.onDotClickListener)), this.dots.innerHTML = null;
-      }
-      this.inner.querySelector(".hs-snap-before").remove(), this.inner.querySelector(".hs-snap-after").remove(), this.dotsItems = null, this.isDragging = false, this.dragStartX = null, this.initialTranslateX = null, window.$hsCarouselCollection = window.$hsCarouselCollection.filter(({ element: t3 }) => t3.el !== this.el);
-    }
-    static getInstance(t2, e2) {
-      const s2 = window.$hsCarouselCollection.find((e3) => e3.element.el === ("string" == typeof t2 ? document.querySelector(t2) : t2));
-      return s2 ? e2 ? s2 : s2.element : null;
-    }
-    static autoInit() {
-      window.$hsCarouselCollection || (window.$hsCarouselCollection = []), window.$hsCarouselCollection && (window.$hsCarouselCollection = window.$hsCarouselCollection.filter(({ element: t2 }) => document.contains(t2.el))), document.querySelectorAll("[data-hs-carousel]:not(.--prevent-on-load-init)").forEach((t2) => {
-        window.$hsCarouselCollection.find((e2) => {
-          var s2;
-          return (null === (s2 = null == e2 ? void 0 : e2.element) || void 0 === s2 ? void 0 : s2.el) === t2;
-        }) || new _l2(t2);
-      });
-    }
-  };
-  window.addEventListener("load", () => {
-    l.autoInit();
-  }), "undefined" != typeof window && (window.HSCarousel = l);
-  var h = l;
-  var a = i.A;
-
-  // <stdin>
-  polyfillPage();
+  // ns-hugo-imp:C:\Users\andre\source\repos\qb\homepage\Homepage2\assets\js\polyfills.mjs
   async function polyfillPage() {
     if (!("anchorName" in document.documentElement.style)) {
       await rb({
@@ -10010,6 +10059,12 @@
       });
     }
   }
+
+  // <stdin>
+  polyfillPage();
+  document.addEventListener("DOMContentLoaded", async () => {
+    createTabControls();
+  });
 })();
 /*! Bundled license information:
 
