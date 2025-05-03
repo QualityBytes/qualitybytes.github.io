@@ -404,6 +404,24 @@
     document.getElementById(tabPanelId).style.display = isActive ? "block" : "none";
   }
 
+  // ns-hugo-imp:C:\Users\andre\source\repos\qb\homepage\Homepage2\assets\js\downloadWhitepaper.mjs
+  function hookWhitepaperButtons() {
+    const buttonDivs = document.querySelectorAll(".whitepaper-download");
+    buttonDivs.forEach((buttonDiv) => {
+      const button = buttonDiv.querySelector("button");
+      const modal = buttonDiv.querySelector("dialog");
+      modal.querySelector("button[type=reset]").addEventListener("click", () => {
+        modal.close();
+      });
+      if (button && modal) {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          modal.showModal();
+        });
+      }
+    });
+  }
+
   // node_modules/@oddbird/css-anchor-positioning/dist/css-anchor-positioning-fn.js
   var ha = Object.defineProperty;
   var fa = Object.defineProperties;
@@ -10064,6 +10082,7 @@
   polyfillPage();
   document.addEventListener("DOMContentLoaded", async () => {
     createTabControls();
+    hookWhitepaperButtons();
   });
 })();
 /*! Bundled license information:
